@@ -9,43 +9,46 @@ Assessment Requirements
 */
 
 // create a variable to hold your NFT's
-const NFTs = []
+let NFTs = []; 
 
 // this function will take in some values as parameters, create an
 // NFT object using the parameters passed to it for its metadata, 
 // and store it in the variable above.
-function mintNFT (_name, _eyeColor, _shirtType, _bling) {
-    const NFT = {
-        "name" : _name,
-        "eyeColor" : _eyeColor,
-        "shirtType" : _shirtType,
-        "bling" : _bling,
-    }
+function mintNFT(name, description, color) {
+    let NFT = {
+        name: name,
+        description: description,
+        color: color
+    };
     NFTs.push(NFT);
-    console.log("Minted: " + _name);
+    console.log("Minted: " + name);
 }
 
 // create a "loop" that will go through an "array" of NFT's
 // and print their metadata with console.log()
-function listNFTs () {
- for(let i = 0; i < NFTs.length; i++){
-    console.log("\nID: \t\t" + (i + 1));
-    console.log("Name: \t\t" + NFTs[i].name);
-    console.log("Eyecolor: \t" + NFTs[i].eyeColor);
-    console.log("Shirt Type: " + NFTs[i].shirtType);
-    console.log("Bling: \t\t" + NFTs[i].bling);
- }
+function listNFTs() {
+    for(let i = 0; i < NFTs.length; i++) {
+        console.log("\nName: \t\t" + NFTs[i].name);
+        console.log("Description: " + NFTs[i].description);
+        console.log("Color: \t \t" + NFTs[i].color);
+    }
 }
 
 // print the total number of NFTs we have minted to the console
 function getTotalSupply() {
-  console.log(NFTs.length);
+    return NFTs.length; // Return the number of NFTs created
+
 }
 
 // call your functions below this line
-mintNFT("Bob", "Blue", "Hoodie", "Gold Chain",);
-mintNFT("Sue", "Blue", "Hoodie", "Gold Chain",);
-mintNFT("Tim", "Blue", "Hoodie", "Gold Chain",);
-mintNFT("Jogn", "Blue", "Hoodie", "Gold Chain",);
+mintNFT("Bogart", "This is the first Dog NFT", "Brown");
+mintNFT("Bruno", "This is the second Dog NFT", "Black");
+mintNFT("Bantay", "This is the third Dog NFT", "White");
+
+// List the NFTs
 listNFTs();
-getTotalSupply();
+
+// Print the total supply
+console.log("\nTotal Supply: " + getTotalSupply());
+
+
